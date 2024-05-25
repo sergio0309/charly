@@ -51,10 +51,10 @@
                     <div class="collapse menu-dropdown" id="sidebarApps">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Categorias</a>
+                                <a href="/categorias" class="nav-link">Categorias</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Productos</a>
+                                <a href="/productos" class="nav-link">Productos</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Moneda</a>
