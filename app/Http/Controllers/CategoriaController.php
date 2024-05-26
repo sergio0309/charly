@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -11,7 +12,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('categorias.index');
+        $category = Categoria::all();
+        return view('categorias.index', compact('category'));
     }
 
     /**
@@ -19,7 +21,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categorias.create');
+        return view('categorias.create', compact('categorias'));
     }
 
     /**
@@ -27,7 +29,15 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+
+        $categoria->nombre = $request->nombre;
+        $categoria->descripcion = $request->descripcion;
+        $categoria->imagen = $request->imagen->store("imagen", "public");
+
+        $categoria->save();
+
+        return redirect()->route('categorias.index')->with('success', 'Producto creado exitosamente.');
     }
 
     /**
